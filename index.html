@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>JavaScript Quiz</title>
+
+</head>
+<body>
+
+<div class ="container">
+
+<header>
+
+    <div class="row">
+        <div class="col-lg-6">
+        <p id="high-score">View High Scores</p>
+        </div>
+        <div class="col-lg-6">
+        <div id="timer"></div>
+        </div>
+    </div>
+   
+</header>
+
+
+<!-- Need header at the top that when the user clicks, you can view the high scores that are stored in the local storage -->
+<div id="start-page">
+
+    <section>
+        <h1>Coding Challenge Quiz</h1>
+
+        <p id="instructions">This five question quiz will assess your understanding of JavaScript. This is a timed quiz, and you will 
+        have 1 minute to complete the quiz. If you choose an incorrect answer, you will be penalized 10-seconds.
+         </p>
+     <!-- Start Quiz Button -->
+        <div>
+        <button type="button" class="btn btn-primary start-quiz-button">Start Quiz</button>
+        </div>
+    </section>
+</div>
+
+    <!-- Need a section for each question
+        - when the user clicks a button, it will then move onto the next quesiton  -->
+
+<!-- Question 1 - will show after the user clicks start -->
+<div id="question1" class="question hide">
+    <h1 class="question-elements">Question 1: What is JavaScript?</h1>
+    <section class="answer-choices">
+        <div class="row">
+            <div class="col-lg-12">
+            <button type="button" class="btn btn-primary answer-btn answer-btn-correct" value="correct">A programming language that allows you to affect the behavior of a page.</button>
+            </div>
+            <div class="col-lg-12">
+            <button type="button" class="btn btn-primary answer-btn answer-btn-wrong" value="wrong">A programming lanugage that affects only the styling of a page.</button>
+            </div>
+            <div class="col-lg-12">
+            <button type="button" class="btn btn-primary answer-btn answer-btn-wrong" value="wrong">A programming language that only affects what is displayed on a page.</button>
+            </div>
+            <div class="col-lg-12">
+            <button type="button" class="btn btn-primary answer-btn answer-btn-wrong" value="wrong">A delicious cup of coffee.</button>
+            </div>
+        </div>
+    </section> 
+    <hr>
+</div>
+
+<div id="question2" class="question hide">
+    <h1 class="question-elements">Question 2: What element is JavaScript written in?</h1>
+    <section class="answer-choices">
+        <div class="row">
+            <div class="col-lg-12">
+            <button type="button" class="btn btn-primary answer-btn2 answer-btn-wrong2" value="wrong">&lt;html&gt;&lt;/html&gt;</button>
+            </div>
+            <div class="col-lg-12">
+            <button type="button" class="btn btn-primary answer-btn2 answer-btn-wrong2" value="wrong">&lt;body&gt;&lt;/body&gt;</button>
+            </div>
+            <div class="col-lg-12">
+            <button type="button" class="btn btn-primary answer-btn2 answer-btn-correct2" value="correct">&lt;script&gt;&lt;/script&gt;</button>
+            </div>
+            <div class="col-lg-12">
+            <button type="button" class="btn btn-primary answer-btn2 answer-btn-wrong2" value="wrong">&lt;action&gt;&lt;/action&gt;</button>
+            </div>
+        </div>
+    </section> 
+    <hr>
+</div>
+
+<div id="question3" class="question hide">
+    <h1 class="question-elements">Question 3: Who created JavaScript?</h1>
+    <section class="answer-choices">
+        <div class="row">
+            <div class="col-lg-12">
+            <button type="button" class="btn btn-primary answer-btn3 answer-btn-wrong3" value="wrong">Bill Gates</button>
+            </div>
+            <div class="col-lg-12">
+            <button type="button" class="btn btn-primary answer-btn3 answer-btn-wrong3" value="wrong">Elon Musk</button>
+            </div>
+            <div class="col-lg-12">
+            <button type="button" class="btn btn-primary answer-btn3 answer-btn-wrong3" value="wrong">Oprah</button>
+            </div>
+            <div class="col-lg-12">
+            <button type="button" class="btn btn-primary answer-btn3 answer-btn-correct3" value="correct">Brendan Eich</button>
+            </div>
+        </div>
+    </section> 
+    <hr>
+</div>
+
+<div id="question4" class="question hide">
+    <h1 class="question-elements">Question 4: Which of the choices below is a JavaScript library</h1>
+    <section class="answer-choices">
+        <div class="row">
+            <div class="col-lg-12">
+            <button type="button" class="btn btn-primary answer-btn4 answer-btn-wrong4" value="wrong">W3 Schools</button>
+            </div>
+            <div class="col-lg-12">
+            <button type="button" class="btn btn-primary answer-btn4 answer-btn-wrong4" value="wrong">Bootstrap</button>
+            </div>
+            <div class="col-lg-12">
+            <button type="button" class="btn btn-primary answer-btn4 answer-btn-wrong4" value="wrong">GitHub</button>
+            </div>
+            <div class="col-lg-12">
+            <button type="button" class="btn btn-primary answer-btn4 answer-btn-correct4" value="correct">JQuery</button>
+            </div>
+        </div>
+    </section> 
+    <hr>
+</div>
+
+<div id="question5" class="question hide">
+    <h1 class="question-elements">Question 5: What year was JavaScript created?</h1>
+    <section class="answer-choices">
+        <div class="row">
+            <div class="col-lg-12">
+            <button type="button" class="btn btn-primary answer-btn5 answer-btn-wrong5" value="wrong">2008</button>
+            </div>
+            <div class="col-lg-12">
+            <button type="button" class="btn btn-primary answer-btn5 answer-btn-correct5" value="correct">1995</button>
+            </div>
+            <div class="col-lg-12">
+            <button type="button" class="btn btn-primary answer-btn5 answer-btn-wrong5" value="wrong">1985</button>
+            </div>
+            <div class="col-lg-12">
+            <button type="button" class="btn btn-primary answer-btn5 answer-btn-wrong5" value="wrong">2015</button>
+            </div>
+        </div>
+    </section> 
+    <hr>
+</div>
+
+<div id="submit-answers" class="question hide">
+    <div class="row">
+        <button type="button" class="btn btn-primary submit-answers-button">Submit Answers</button>
+    </div>
+</div>
+    
+        <!-- Need a quiz complete page
+            - Displays your score and lets you put in your initials (should be stored in local storage). This will be stored after clicking submit
+            - When you click the submit button it then takes you to a page where you can choose to go back or clear the highscores
+         -->
+<div id="quizComplete" class="hide">
+    <section>
+        <h1>Quiz Complete!</h1>
+        <div id="show-score"></div>
+        <form>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                </div>
+                <input type="text" class="form-control" placeholder="Initials" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+        </form>
+        <button type="button" class="btn btn-primary submit-button">Submit</button>
+       
+</div>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

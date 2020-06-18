@@ -1,43 +1,162 @@
 // Timer: When you click start it takes you to the first question set and begins the timer
-var secondsLeft = 60;
-var questions = $(".question");
-var quizComplete = $("#quizComplete");
-var correctAnswerButton = $(".answer-btn-correct");
-var incorrectAnswerButton = $(".answer-btn-wrong");
-var correctAnswerButton2 = $(".answer-btn-correct2");
-var incorrectAnswerButton2 = $(".answer-btn-wrong2");
-var correctAnswerButton3 = $(".answer-btn-correct3");
-var incorrectAnswerButton3 = $(".answer-btn-wrong3");
-var correctAnswerButton4 = $(".answer-btn-correct4");
-var incorrectAnswerButton4 = $(".answer-btn-wrong4");
-var correctAnswerButton5 = $(".answer-btn-correct5");
-var incorrectAnswerButton5 = $(".answer-btn-wrong5");
-var anyAnswerButton = $(".answer-btn");
-var correctAnswerDisplay = $(".correct-display");
-var incorrectAnswerDisplay = $(".incorrect-display");
-var answer = "";
-var userAnswers = localStorage.getItem("answer");
-var userInitials = localStorage.getItem("initials");
-var myHighScore = localStorage.getItem("userScore");
-var userScore = 0;
-var question1 = $("#question1");
-var question2 = $("#question2");
-var question3 = $("#question3");
-var question4 = $("#question4");
-var question5 = $("#question5");
+let secondsLeft = 60;
 
 $(".start-quiz-button").on("click", function setTime() {
-  var timerInterval = setInterval(function() {
+  const timerInterval = setInterval(function() {
     secondsLeft--;
     $("#timer").text("Time Left: " + secondsLeft);
 
     if(secondsLeft === 0) {
       clearInterval(timerInterval);
       endTimer();
-    };
+    }}, 1000);
+
   $("#start-page").addClass("hide");
-  }, 1000);
+
+  // display question one
+  $("#question1").removeClass("hide");
+  });
+
+  var userScore = 0;
+  console.log(userScore)
+
+// When the user clicks on an answer choice, the quiz will add a message of whether the answer is correct
+// If the answer is wrong, then the 10 secionds is subtracted from the timer. 
+$(".answer-btn").on("click", function answerSelection() {
+  // depending on the answer the user selects...
+  answer = $(this).attr("value"); 
+  // ...display that the answer is correct
+  if (answer === "correct") {
+    userScore = userScore + 1; 
+    var correctDisplay = $("<p>"); 
+    correctDisplay.text("That's Correct!")
+    $(".answer-display1").append(correctDisplay)
+  }
+  // ...display that the answer is incorrect and remove 10 seconds from the timer
+  else {
+    secondsLeft = secondsLeft - 10
+    var incorrectDisplay = $("<p>"); 
+    incorrectDisplay.text("That's Incorrect!")
+    $(".answer-display1").append(incorrectDisplay)
+  }
+  // setting an timer to automatically move to the next question 2 seconds after the answer is clicked
+  setTimeout(function () {
+    $("#question1").addClass("hide");
+    $("#question2").removeClass("hide");
+    $(".answer-display1").addClass("hide");
+  }, 2000)
 })
+
+// doing the same thing for question 2
+$(".answer-btn2").on("click", function answerSelection() {
+  // depending on the answer the user selects...
+  answer = $(this).attr("value"); 
+  // ...display that the answer is correct
+  if (answer === "correct") {
+    userScore = userScore + 1; 
+    var correctDisplay = $("<p>"); 
+    correctDisplay.text("That's Correct!")
+    $(".answer-display2").append(correctDisplay)
+  }
+  // ...display that the answer is incorrect and remove 10 seconds from the timer
+  else {
+    secondsLeft = secondsLeft - 10
+    var incorrectDisplay = $("<p>"); 
+    incorrectDisplay.text("That's Incorrect!")
+    $(".answer-display2").append(incorrectDisplay)
+  }
+  // setting an timer to automatically move to the next question 2 seconds after the answer is clicked
+  setTimeout(function () {
+    $("#question2").addClass("hide");
+    $("#question3").removeClass("hide");
+    $(".answer-display2").addClass("hide");
+  }, 2000)
+})
+
+// doing the same thing for question 3
+$(".answer-btn3").on("click", function answerSelection() {
+  // depending on the answer the user selects...
+  answer = $(this).attr("value"); 
+  // ...display that the answer is correct
+  if (answer === "correct") {
+    userScore = userScore + 1; 
+    var correctDisplay = $("<p>"); 
+    correctDisplay.text("That's Correct!")
+    $(".answer-display3").append(correctDisplay)
+  }
+  // ...display that the answer is incorrect and remove 10 seconds from the timer
+  else {
+    secondsLeft = secondsLeft - 10
+    var incorrectDisplay = $("<p>"); 
+    incorrectDisplay.text("That's Incorrect!")
+    $(".answer-display3").append(incorrectDisplay)
+  }
+  // setting an timer to automatically move to the next question 2 seconds after the answer is clicked
+  setTimeout(function () {
+    $("#question3").addClass("hide");
+    $("#question4").removeClass("hide");
+    $(".answer-display3").addClass("hide");
+  }, 2000)
+})
+
+// doing the same thing for question 4
+$(".answer-btn4").on("click", function answerSelection() {
+  // depending on the answer the user selects...
+  answer = $(this).attr("value"); 
+  // ...display that the answer is correct
+  if (answer === "correct") {
+    userScore = userScore + 1; 
+    var correctDisplay = $("<p>"); 
+    correctDisplay.text("That's Correct!")
+    $(".answer-display4").append(correctDisplay)
+  }
+  // ...display that the answer is incorrect and remove 10 seconds from the timer
+  else {
+    secondsLeft = secondsLeft - 10
+    var incorrectDisplay = $("<p>"); 
+    incorrectDisplay.text("That's Incorrect!")
+    $(".answer-display4").append(incorrectDisplay)
+  }
+  // setting an timer to automatically move to the next question 2 seconds after the answer is clicked
+  setTimeout(function () {
+    $("#question4").addClass("hide");
+    $("#question5").removeClass("hide");
+    $(".answer-display4").addClass("hide");
+  }, 2000)
+})
+
+// doing the same thing for question 5
+$(".answer-btn5").on("click", function answerSelection() {
+  // depending on the answer the user selects...
+  answer = $(this).attr("value"); 
+  // ...display that the answer is correct
+  if (answer === "correct") {
+    userScore = userScore + 1; 
+    var correctDisplay = $("<p>"); 
+    correctDisplay.text("That's Correct!")
+    $(".answer-display5").append(correctDisplay)
+  }
+  // ...display that the answer is incorrect and remove 10 seconds from the timer
+  else {
+    secondsLeft = secondsLeft - 10
+    var incorrectDisplay = $("<p>"); 
+    incorrectDisplay.text("That's Incorrect!")
+    $(".answer-display5").append(incorrectDisplay)
+  }
+  // setting an timer to automatically move to the next question 2 seconds after the answer is clicked
+  setTimeout(function () {
+    $("#question5").addClass("hide");
+    $("#quizComplete").removeClass("hide");
+    $(".answer-display5").addClass("hide");
+  }, 2000)
+})
+
+$(".submit-answers-button").on("click", function (){
+  // display the user score 
+  // submit the user's score into local storage
+  // show a page that displays the user's high scores
+})
+
 
 // if timer reaches 0, then display that time is up
 function endTimer() {
@@ -46,140 +165,8 @@ function endTimer() {
   }
 }
 
-$(".start-quiz-button").on("click", function(){
-  question1.removeClass("hide");
-  $("#start-page").addClass("hide");
-
-  correctAnswerButton.on("click", function(event) {
-    answer = $(this).attr("value");
-    if(answer === "correct"){
-      userScore = userScore +1;
-      alert("That is correct!");
-    };
-    localStorage.setItem("answer", answer)
-    question2.removeClass("hide");
-    question1.addClass("hide");
-  });
-  // if the user clicks on the correct answer, then display that the answer is correct and then moves onto the next question
-  
-  // if the user clicks on an incorrect answer, then display that the answer is incorrect, remove 10 seconds from the time, and display the next button
-  incorrectAnswerButton.on("click", function(event) {
-    answer = $(this).attr("value");
-    alert("That is incorrect!");
-    localStorage.setItem("answer", answer)
-    secondsLeft = secondsLeft - 10
-    question2.removeClass("hide");
-    question1.addClass("hide");
-  }) 
-  
-})
-
-$(".answer-btn2").on("click", function(){
-  correctAnswerButton2.on("click", function(event) {
-    answer = $(this).attr("value");
-    if(answer === "correct"){
-      userScore = userScore +1;
-      alert("That is correct!");
-    };
-    localStorage.setItem("answer", answer);
-    question3.removeClass("hide");
-    question2.addClass("hide");
-  });
-  // if the user clicks on the correct answer, then display that the answer is correct and then moves onto the next question
-  
-  // if the user clicks on an incorrect answer, then display that the answer is incorrect, remove 10 seconds from the time, and display the next button
-  incorrectAnswerButton2.on("click", function(event) {
-    answer = $(this).attr("value")
-    alert("That is incorrect!");
-    localStorage.setItem("answer", answer);
-    secondsLeft = secondsLeft - 10
-    question3.removeClass("hide");
-    question2.addClass("hide");
-  }) 
-})
-
-$(".answer-btn3").on("click", function(){
-  correctAnswerButton3.on("click", function(event) {
-    answer = $(this).attr("value");
-    if(answer === "correct"){
-      userScore = userScore +1;
-      alert("That is correct!");
-    };
-    localStorage.setItem("answer", answer);
-    question4.removeClass("hide");
-    question3.addClass("hide");
-  });
-  // if the user clicks on the correct answer, then display that the answer is correct and then moves onto the next question
-  
-  // if the user clicks on an incorrect answer, then display that the answer is incorrect, remove 10 seconds from the time, and display the next button
-  incorrectAnswerButton3.on("click", function(event) {
-    answer = $(this).attr("value")
-    alert("That is incorrect!");
-    localStorage.setItem("answer", answer);
-    secondsLeft = secondsLeft - 10
-    question4.removeClass("hide");
-    question3.addClass("hide");
-  }) 
-})
-
-$(".answer-btn4").on("click", function(){
-  correctAnswerButton4.on("click", function(event) {
-    answer = $(this).attr("value");
-    if(answer === "correct"){
-      userScore = userScore +1;
-      alert("That is correct!");
-    };
-    localStorage.setItem("answer", answer);
-    question5.removeClass("hide");
-    question4.addClass("hide");
-  });
-  // if the user clicks on the correct answer, then display that the answer is correct and then moves onto the next question
-  
-  // if the user clicks on an incorrect answer, then display that the answer is incorrect, remove 10 seconds from the time, and display the next button
-  incorrectAnswerButton4.on("click", function(event) {
-    answer = $(this).attr("value")
-    alert("That is incorrect!");
-    localStorage.setItem("answer", answer);
-    secondsLeft = secondsLeft - 10
-    question5.removeClass("hide");
-    question4.addClass("hide");
-  }) 
-})
-
-$(".answer-btn5").on("click", function(){
-  correctAnswerButton5.on("click", function(event) {
-    answer = $(this).attr("value");
-    if(answer === "correct"){
-      userScore = userScore +1;
-      alert("That is correct!");
-    };
-    localStorage.setItem("answer", answer);
-    $("#submit-answers").removeClass("hide");
-  });
-  // if the user clicks on the correct answer, then display that the answer is correct and then moves onto the next question
-  
-  // if the user clicks on an incorrect answer, then display that the answer is incorrect, remove 10 seconds from the time, and display the next button
-  incorrectAnswerButton5.on("click", function(event) {
-    answer = $(this).attr("value")
-    alert("That is incorrect!");
-    localStorage.setItem("answer", answer);
-    secondsLeft = secondsLeft - 10
-    $("#submit-answers").removeClass("hide");
-  }) 
-})
-
-$("#submit-answers").on("click", function(){
-  questions.hide()
-  quizComplete.removeClass("hide");
-})
-
-function displayScore(){
-  $("#show-score").after(userScore);
-  localStorage.setItem("userScore", userScore)
-}
-
-console.log(userScore)
-displayScore()
+// console.log(userScore)
+// displayScore()
 
 
 
